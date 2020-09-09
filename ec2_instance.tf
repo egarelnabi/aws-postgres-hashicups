@@ -52,6 +52,3 @@ resource "aws_instance" "redhat" {
   user_data = data.template_file.config.rendered
 
 }
-
-
-https://phobos.apple.com/WebObjects/MZFinance.woa/wa/freeProductCodeWizard?code=JFPW9TE7NLFP
