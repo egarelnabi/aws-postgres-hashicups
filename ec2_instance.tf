@@ -21,7 +21,25 @@ data "template_file" "config" {
   template = file("postgres.tpl")
 }
 
-resource "aws_instance" "ubuntu" {
+resource "aws_security_group" "security_group" {
+  name        = "eyad-security-group"
+
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_instance" "redhat" {
   count         = 1
   ami           = data.aws_ami.rhel_ami.id
   instance_type = "t2.micro"
@@ -34,3 +52,6 @@ resource "aws_instance" "ubuntu" {
   user_data = data.template_file.config.rendered
 
 }
+
+
+https://phobos.apple.com/WebObjects/MZFinance.woa/wa/freeProductCodeWizard?code=JFPW9TE7NLFP
