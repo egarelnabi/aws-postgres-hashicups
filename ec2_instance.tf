@@ -43,6 +43,7 @@ resource "aws_instance" "redhat" {
   count         = 1
   ami           = data.aws_ami.rhel_ami.id
   instance_type = "t2.micro"
+  key_name = "eyad-keypair"
   #add parameterized vars for security group & subnets
 
   tags = {
